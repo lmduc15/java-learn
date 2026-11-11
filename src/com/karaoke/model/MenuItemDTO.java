@@ -5,12 +5,43 @@ public class MenuItemDTO {
     private String itemName;
     private Long price;
     private String category;
+    private String description;
+    private Boolean available;
+    private Integer quantity;
 
-    public MenuItemDTO(String itemCode, String itemName, Long price, String category) {
+
+    public MenuItemDTO(String itemCode, String itemName, Long price, String category, String description, Boolean available, Integer quantity) {
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.price = price;
         this.category = category;
+        this.description = description;
+        this.available = available;
+        this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getItemCode() {

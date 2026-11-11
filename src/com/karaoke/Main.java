@@ -13,6 +13,7 @@ public class Main {
             System.out.println("1. Quan ly Phong hat");
             System.out.println("2. Quan ly Menu");
             System.out.println("3. Quan ly Dat phong");
+            System.out.println("4. Quan ly Nhan vien");
             System.out.println("0. Thoat");
             System.out.print("Nhap chuc nang: ");
 
@@ -27,6 +28,11 @@ public class Main {
                 case 3:
                     bookingMenu();
                     break;
+                case 4:
+                    staffMenu();
+                    break;
+                case 0:
+                    System.out.println("Thoat");
                 default:
                     System.out.println("Chon chuc nang theo nhu cau");
             }
@@ -61,7 +67,9 @@ public class Main {
                 default:
                     System.out.println("Thu lai!");
             }
-        } while(choice != 0);
+        } while (choice != 0);
+
+        sc.close();
     }
 
     private static void menuMenu() {
@@ -96,6 +104,8 @@ public class Main {
             }
 
         } while (choice != 0);
+
+        sc.close();
     }
 
     private static void bookingMenu() {
@@ -130,6 +140,39 @@ public class Main {
             }
 
         } while (choice != 0);
+
+        sc.close();
     }
 
+    private static void staffMenu() {
+        int choice;
+        do {
+            System.out.println("----Quan ly Nhan vien----");
+            System.out.println("1. Them staff");
+            System.out.println("2. Sua staff");
+            System.out.println("3. Xoa staff");
+            System.out.println("4. Tim kiem staff");
+            System.out.println("0. Quay lai");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Chuc nang them staff");
+                    break;
+                case 2:
+                    System.out.println("Chuc nang sua staff");
+                    break;
+                case 3:
+                    System.out.println("Chuc nang xoa staff");
+                    break;
+                case 4:
+                    System.out.println("Chuc nang tim kiem staff");
+                    break;
+                case 0:
+                    System.out.println("Quay lai!");
+                default:
+            }
+        } while (choice != 0);
+    }
 }
