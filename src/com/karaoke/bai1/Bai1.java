@@ -5,15 +5,25 @@ import java.util.Scanner;
 public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap do dai: ");
 
-        while (!sc.hasNextInt()) {
-            System.out.println("Vui long nhap so nguyen !!!");
-            sc.next();
+        int n;
+
+        while (true) {
             System.out.print("Nhap do dai: ");
+            if (!sc.hasNextInt()) {
+                System.out.println("Vui long nhap so nguyen !!!");
+                sc.next();
+                continue;
+            }
+            n = sc.nextInt();
+            if (n <= 0) {
+                System.out.println("Gia tri khong hop le !!!");
+            } else {
+                break;
+            }
         }
 
-        int n = sc.nextInt();
+//        int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
