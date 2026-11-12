@@ -1,5 +1,7 @@
 package com.karaoke;
 
+import com.karaoke.service.RoomService;
+
 import java.util.Scanner;
 
 public class Main {
@@ -33,6 +35,7 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Thoat");
+                    break;
                 default:
                     System.out.println("Chon chuc nang theo nhu cau");
             }
@@ -41,6 +44,7 @@ public class Main {
         sc.close();
     }
 
+
     private static void roomMenu() {
         int choice;
         do {
@@ -48,13 +52,14 @@ public class Main {
             System.out.println("1. Them phong hat");
             System.out.println("2. Sua phong hat");
             System.out.println("3. Xoa phong hat");
+            System.out.println("4. Danh sach phong hat");
             System.out.print("Nhap chuc nang: ");
 
             choice = sc.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("Chuc nang them phong");
+                    RoomService.addRoom();
                     break;
                 case 2:
                     System.out.println("Chuc nang sua phong");
@@ -63,13 +68,13 @@ public class Main {
                     System.out.println("Chuc nang xoa phong");
                     break;
                 case 4:
-                    System.out.println("Quay lai");
+                    RoomService.showAll();
+                    break;
                 default:
                     System.out.println("Thu lai!");
             }
         } while (choice != 0);
 
-        sc.close();
     }
 
     private static void menuMenu() {
@@ -99,13 +104,13 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Quay lai!");
+                    break;
                 default:
                     System.out.println("Thu lai!");
             }
 
         } while (choice != 0);
 
-        sc.close();
     }
 
     private static void bookingMenu() {
@@ -135,13 +140,12 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Quay lai!");
+                    break;
                 default:
                     System.out.println("Thu lai!");
             }
 
         } while (choice != 0);
-
-        sc.close();
     }
 
     private static void staffMenu() {
@@ -171,6 +175,7 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Quay lai!");
+                    break;
                 default:
             }
         } while (choice != 0);
