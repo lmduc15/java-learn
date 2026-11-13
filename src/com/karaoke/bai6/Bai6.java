@@ -21,10 +21,19 @@ public class Bai6 {
 
         int[] newArray = new int[array.length + 1];
 
+        System.out.print("Chen phan tu moi vao vi tri " + array[0] + " - " + array[array.length - 1] + ": ");
+
+        int position = sc.nextInt();
+        int index = position - 1;
         for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
+            // 1 2 3 4 5
+            if (i < index) {
+                newArray[i] = array[i];
+            } else {
+                newArray[i + 1] = array[i];
+            }
         }
-        newArray[array.length] = newItem;
+        newArray[index] = newItem;
         System.out.println("new array" + Arrays.toString(newArray));
         sc.close();
     }
