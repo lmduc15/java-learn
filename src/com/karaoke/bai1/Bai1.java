@@ -1,29 +1,14 @@
 package com.karaoke.bai1;
 
+import com.karaoke.util.InputValidate;
+
 import java.util.Scanner;
 
 public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n;
-
-        while (true) {
-            System.out.print("Nhap do dai: ");
-            if (!sc.hasNextInt()) {
-                System.out.println("Vui long nhap so nguyen !!!");
-                sc.next();
-                continue;
-            }
-            n = sc.nextInt();
-            if (n <= 0) {
-                System.out.println("Gia tri khong hop le !!!");
-            } else {
-                break;
-            }
-        }
-
-//        int n = sc.nextInt();
+        int n = InputValidate.inputPositiveIntNum(sc);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
