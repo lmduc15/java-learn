@@ -1,4 +1,4 @@
-package com.karaoke;
+package com.karaoke.bai4;
 
 import com.karaoke.util.InputValidate;
 
