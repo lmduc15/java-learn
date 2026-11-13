@@ -2,7 +2,11 @@ package com.karaoke.util;
 
 import java.util.Scanner;
 
-public class InputValidate {
+public final class InputValidate {
+    private InputValidate() {
+
+    }
+
     public static int inputPositiveIntNum(Scanner sc) {
         while (true) {
             System.out.print("Nhap do dai: ");
