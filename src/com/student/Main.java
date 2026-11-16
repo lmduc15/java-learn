@@ -14,7 +14,7 @@ public class Main {
         do {
             System.out.println("Quan ly Sinh Vien");
             System.out.println("1. Them Sinh vien");
-            System.out.println("2. Sua Sinh vien ");
+            System.out.println("2. Sua Sinh vien");
             System.out.println("3. Xoa Sinh vien");
             System.out.println("4. Xem danh sach");
             System.out.println("0. Exit");
@@ -39,6 +39,8 @@ public class Main {
                     break;
             }
         } while (choice != 0);
+
+        sc.close();
 
     }
 }

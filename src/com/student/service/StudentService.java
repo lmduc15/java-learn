@@ -24,9 +24,10 @@ public class StudentService {
     }
 
     public static void showStudents() {
+        int stt = 0;
         System.out.println("----Hien thi danh sach sinh vien-----");
         for (StudentDTO student : StudentConstant.listStudents) {
-            System.out.println("Danh sach: " + student);
+            System.out.println("Danh sach: " + " STT: " + stt++ + ", " + student);
         }
     }
 }
