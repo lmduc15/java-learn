@@ -9,7 +9,7 @@ public class Bai3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = InputValidate.inputPositiveIntNum(sc);
+        int n = InputValidate.inputPositiveIntNum(sc, "Nhap so hang cua tam giac: ");
         for (int i = n; i > 0; i--) {
             for (int j = i; j > 0; j--) {
                 if (i == n || j == i || j == 1) {

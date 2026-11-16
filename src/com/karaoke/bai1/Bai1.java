@@ -8,7 +8,7 @@ public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = InputValidate.inputPositiveIntNum(sc);
+        int n = InputValidate.inputPositiveIntNum(sc, "Nhap do dai canh: ");
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
