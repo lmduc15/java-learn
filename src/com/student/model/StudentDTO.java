@@ -4,7 +4,7 @@ public class StudentDTO {
     private final Integer studentId;
     private String name;
     private Integer age;
-    private String className;
+    private String className; //TODO từ nhạy cảm không nên sử dụng
 
     public StudentDTO(Integer studentId, String name, Integer age, String className) {
         this.studentId = studentId;
