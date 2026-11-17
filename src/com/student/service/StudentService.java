@@ -54,7 +54,7 @@ public class StudentService {
     public void updateStudent() {
         System.out.println("----Sua Sinh vien----");
         Integer studentId = InputValidation.readInt(sc, "Nhap ma sinh vien can sua: ");
-        StudentDTO studentDTO = findById(studentId); // obj sinh vien tim duoc
+        StudentDTO studentDTO = findById(studentId); // obj sinh vien tim duoc //TODO sao không dùng Optional
         if (studentDTO == null) {
             System.out.println("Khong ton tai sinh vien voi id " + studentId);
             return;

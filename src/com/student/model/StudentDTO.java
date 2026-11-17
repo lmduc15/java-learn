@@ -1,10 +1,13 @@
 package com.student.model;
 
+//TODO quản lý thêm Lớp học
 public class StudentDTO {
-    private final Integer studentId;
+    private final Integer studentId; //TODO cần gi final
     private String name;
     private Integer age;
     private String studentClass;
+
+    //TODO thiếu constructor mặc định
 
     public StudentDTO(Integer studentId, String name, Integer age, String className) {
         this.studentId = studentId;
