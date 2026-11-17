@@ -15,7 +15,7 @@ public class StudentService {
     }
 
     public Optional<StudentDTO> findById(Integer studentId) {
-        for (StudentDTO student : StudentConstant.students) {
+        for (StudentDTO student : StudentConstant.listStudent) {
             if (student.getStudentId().equals(studentId)) {
                 return Optional.of(student);
             }
@@ -26,11 +26,11 @@ public class StudentService {
     public void showStudents() {
         int stt = 1;
         System.out.println("----Hien thi danh sach sinh vien-----");
-        if (StudentConstant.students.isEmpty()) {
+        if (StudentConstant.listStudent.isEmpty()) {
             System.out.println("Danh sach sinh vien rong!");
             return;
         }
-        for (StudentDTO student : StudentConstant.students) {
+        for (StudentDTO student : StudentConstant.listStudent) {
             System.out.println("STT: " + stt++ + ", " + student);
         }
     }
@@ -49,7 +49,7 @@ public class StudentService {
         String className = InputValidation.readString(sc, "Nhap ten lop sinh vien: ");
         StudentDTO sinhVien = new StudentDTO(studentId, name, age, className);
 
-        StudentConstant.students.add(sinhVien);
+        StudentConstant.listStudent.add(sinhVien);
         System.out.println("Them sinh vien thanh cong !");
     }
 
@@ -83,7 +83,7 @@ public class StudentService {
         }
 
         StudentDTO deletedStudent = deletedStudentOptional.get();
-        StudentConstant.students.remove(deletedStudent);
+        StudentConstant.listStudent.remove(deletedStudent);
         System.out.println("Xoa sinh vien thanh cong !");
     }
 }
