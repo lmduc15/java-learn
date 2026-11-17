@@ -8,8 +8,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class StudentService {
-    static Scanner sc = new Scanner(System.in);
-
+    Scanner sc = new Scanner(System.in);
 
     public StudentService() {
     }
@@ -31,7 +30,7 @@ public class StudentService {
             return;
         }
         for (StudentDTO student : StudentConstant.listStudent) {
-            System.out.println("STT: " + stt++ + ", " + student);
+            System.out.println("STT: " + (stt++) + ", " + student);
         }
     }
 
