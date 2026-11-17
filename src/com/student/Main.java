@@ -19,7 +19,7 @@ public class Main {
             System.out.println("2. Sua Sinh vien");
             System.out.println("3. Xoa Sinh vien");
             System.out.println("4. Xem danh sach Sinh vien");
-            System.out.println("0. Exit");
+            System.out.println("0. Thoat chuong trinh");
 
             choice = InputValidate.inputIntInRange(sc, "Nhap chuc nang: ", 0, 4);
 
@@ -37,10 +37,10 @@ public class Main {
                     studentService.showStudents();
                     break;
                 case 0:
-                    System.out.println("Thoat chuong trinh !!!");
+                    System.exit(0);
                     break;
             }
-        } while (choice != 0);
+        } while (choice >= 0);
 
         sc.close();
 
