@@ -43,7 +43,7 @@ public class StudentDTO {
 
     @Override
     public String toString() {
-        return "Tên: " + name + ", Tuổi: " + age + ", Lớp: " + studentClass;
+        return "Id: " + studentId + ", Tên: " + name + ", Tuổi: " + age + ", Lớp: " + studentClass;
     }
 
 }

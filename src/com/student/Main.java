@@ -18,7 +18,7 @@ public class Main {
             System.out.println("1. Them Sinh vien");
             System.out.println("2. Sua Sinh vien");
             System.out.println("3. Xoa Sinh vien");
-            System.out.println("4. Xem danh sach");
+            System.out.println("4. Xem danh sach Sinh vien");
             System.out.println("0. Exit");
 
             choice = InputValidate.inputIntInRange(sc, "Nhap chuc nang: ", 0, 4);
@@ -28,10 +28,10 @@ public class Main {
                     studentService.addStudent();
                     break;
                 case 2:
-                    System.out.println("Chuc nang Sua");
+                    studentService.updateStudent();
                     break;
                 case 3:
-                    System.out.println("Chuc nang Xoa");
+                    studentService.deleteStudent();
                     break;
                 case 4:
                     studentService.showStudents();
