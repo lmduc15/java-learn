@@ -4,13 +4,13 @@ public class StudentDTO {
     private final Integer studentId;
     private String name;
     private Integer age;
-    private String className; //TODO từ nhạy cảm không nên sử dụng
+    private String studentClass;
 
     public StudentDTO(Integer studentId, String name, Integer age, String className) {
         this.studentId = studentId;
         this.name = name;
         this.age = age;
-        this.className = className;
+        this.studentClass = className;
     }
 
     public Integer getStudentId() {
@@ -33,17 +33,17 @@ public class StudentDTO {
         this.age = age;
     }
 
-    public String getClassName() {
-        return className;
+    public String getStudentClass() {
+        return studentClass;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass;
     }
 
     @Override
     public String toString() {
-        return "Tên: " + name + ", Tuổi: " + age + ", Lớp: " + className;
+        return "Tên: " + name + ", Tuổi: " + age + ", Lớp: " + studentClass;
     }
 
 }

@@ -6,7 +6,7 @@ import com.student.util.InputValidation;
 
 import java.util.Scanner;
 
-public final class StudentService { // TODO không được phép để final ở đây
+public class StudentService {
     static Scanner sc = new Scanner(System.in);
 
 
@@ -16,7 +16,7 @@ public final class StudentService { // TODO không được phép để final �
     public void showStudents() {
         int stt = 0;
         System.out.println("----Hien thi danh sach sinh vien-----");
-        for (StudentDTO student : StudentConstant.listStudents) {
+        for (StudentDTO student : StudentConstant.students) {
             System.out.println("STT: " + stt++ + ", " + student);
         }
     }
@@ -29,6 +29,6 @@ public final class StudentService { // TODO không được phép để final �
         String className = InputValidation.readString(sc, "Nhap ten lop sinh vien: ");
         StudentDTO sinhVien = new StudentDTO(studentId, name, age, className);
 
-        StudentConstant.listStudents.add(sinhVien);
+        StudentConstant.students.add(sinhVien);
     }
 }
