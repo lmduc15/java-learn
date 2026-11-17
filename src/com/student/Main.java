@@ -11,6 +11,8 @@ public class Main {
 //        System.out.println("sv1: " + sv1.toString());
         Scanner sc = new Scanner(System.in);
         int choice;
+
+        StudentService studentService = new StudentService();
         do {
             System.out.println("Quan ly Sinh Vien");
             System.out.println("1. Them Sinh vien");
@@ -23,7 +25,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    StudentService.addStudent();
+                    studentService.addStudent();
                     break;
                 case 2:
                     System.out.println("Chuc nang Sua");
@@ -32,7 +34,7 @@ public class Main {
                     System.out.println("Chuc nang Xoa");
                     break;
                 case 4:
-                    StudentService.showStudents();
+                    studentService.showStudents();
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh !!!");

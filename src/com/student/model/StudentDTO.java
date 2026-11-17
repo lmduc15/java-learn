@@ -1,20 +1,19 @@
 package com.student.model;
 
 public class StudentDTO {
-    private final String studentId;
+    private final Integer studentId;
     private String name;
-    private String age;
+    private Integer age;
     private String className;
 
-    public StudentDTO(String studentId, String name, String age, String className) {
+    public StudentDTO(Integer studentId, String name, Integer age, String className) {
         this.studentId = studentId;
         this.name = name;
         this.age = age;
         this.className = className;
-        setAge(age);
     }
 
-    public String getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
@@ -26,11 +25,11 @@ public class StudentDTO {
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
