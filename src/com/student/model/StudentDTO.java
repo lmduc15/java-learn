@@ -5,13 +5,13 @@ public class StudentDTO {
     private Integer studentId;
     private String name;
     private Integer age;
-    private String studentClass;
+    private ClassroomDTO studentClass;
 
     public StudentDTO() {
 
     }
 
-    public StudentDTO(Integer studentId, String name, Integer age, String studentClass) {
+    public StudentDTO(Integer studentId, String name, Integer age, ClassroomDTO studentClass) {
         this.studentId = studentId;
         this.name = name;
         this.age = age;
@@ -38,17 +38,17 @@ public class StudentDTO {
         this.age = age;
     }
 
-    public String getStudentClass() {
+    public ClassroomDTO getClassroom() {
         return studentClass;
     }
 
-    public void setStudentClass(String studentClass) {
+    public void setClassroom(ClassroomDTO studentClass) {
         this.studentClass = studentClass;
     }
 
     @Override
     public String toString() {
-        return "Id: " + studentId + ", Tên: " + name + ", Tuổi: " + age + ", Lớp: " + studentClass;
+        return "Id: " + studentId + ", Tên: " + name + ", Tuổi: " + age + ", Lớp: " + studentClass.getClassName();
     }
 
 }

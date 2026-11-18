@@ -1,6 +1,7 @@
 package com.student.service;
 
 import com.student.constant.StudentConstant;
+import com.student.model.ClassroomDTO;
 import com.student.model.StudentDTO;
 import com.student.util.InputValidation;
 
@@ -9,6 +10,7 @@ import java.util.Scanner;
 
 public class StudentService {
     Scanner sc = new Scanner(System.in);
+    ClassroomService classroomService = new ClassroomService();
 
     public StudentService() {
     }
@@ -45,8 +47,15 @@ public class StudentService {
 
         String name = InputValidation.readString(sc, "Nhap ten sinh vien: ");
         Integer age = InputValidation.readInt(sc, "Nhap tuoi sinh vien: ");
-        String className = InputValidation.readString(sc, "Nhap ten lop sinh vien: ");
-        StudentDTO sinhVien = new StudentDTO(studentId, name, age, className);
+        String classroomId = InputValidation.readString(sc, "Nhap ma lop sinh vien: ");
+        Optional<ClassroomDTO> classroomOptional = classroomService.findById(classroomId);
+        if (classroomOptional.isEmpty()) {
+            System.out.println("Ma lop khong ton tai");
+            return;
+        }
+        ClassroomDTO classroom = classroomOptional.get();
+
+        StudentDTO sinhVien = new StudentDTO(studentId, name, age, classroom);
 
         StudentConstant.listStudent.add(sinhVien);
         System.out.println("Them sinh vien thanh cong !");
@@ -55,18 +64,28 @@ public class StudentService {
     public void updateStudent() {
         System.out.println("----Sua Sinh vien----");
         Integer studentId = InputValidation.readInt(sc, "Nhap ma sinh vien can sua: ");
-        Optional<StudentDTO> studentOptional = findById(studentId); // obj sinh vien tim duoc
+        Optional<StudentDTO> studentOptional = findById(studentId); // Optional chua obj sinh vien tim duoc
 
         if (studentOptional.isEmpty()) {
             System.out.println("Khong ton tai sinh vien voi id " + studentId);
             return;
         }
 
-        StudentDTO studentDTO = studentOptional.get();
+        String newName = InputValidation.readString(sc, "Nhap ten sinh vien moi: ");
+        Integer newAge = InputValidation.readInt(sc, "Hay nhap tuoi moi: ");
 
-        studentDTO.setName(InputValidation.readString(sc, "Nhap ten sinh vien moi: "));
-        studentDTO.setAge(InputValidation.readInt(sc, "Hay nhap tuoi moi: "));
-        studentDTO.setStudentClass(InputValidation.readString(sc, "Hay nhap lop moi: "));
+        StudentDTO studentDTO = studentOptional.get(); // obj sinh vien
+
+        String classroomId = InputValidation.readString(sc, "Hay nhap ma lop moi: ");
+        Optional<ClassroomDTO> classroomOptional = classroomService.findById(classroomId); // Optional chua obj lop hoc tim duoc
+        if (classroomOptional.isEmpty()) {
+            System.out.println("Ma lop khong ton tai!");
+            return;
+        }
+        studentDTO.setName(newName);
+        studentDTO.setAge(newAge);
+        ClassroomDTO classroom = classroomOptional.get(); // obj lop hoc
+        studentDTO.setClassroom(classroom);
         System.out.println("Cap nhat sinh vien thanh cong !");
     }
 
