@@ -2,6 +2,7 @@ package com.student.service;
 
 import com.student.constant.StudentConstant;
 import com.student.model.ClassroomDTO;
+import com.student.model.StudentDTO;
 import com.student.util.InputValidation;
 
 import java.util.Optional;
@@ -68,8 +69,8 @@ public class ClassroomService {
     public void deleteClassroom() {
         System.out.println("----Xoa lop hoc----");
 
-        String classroomId = InputValidation.readString(sc, "Nhap ma lop hoc can xoa: ");
-        Optional<ClassroomDTO> deletedClassroomOptional = findById(classroomId);
+        String deletedClassroomId = InputValidation.readString(sc, "Nhap ma lop hoc can xoa: ");
+        Optional<ClassroomDTO> deletedClassroomOptional = findById(deletedClassroomId);
 
         if (deletedClassroomOptional.isEmpty()) {
             System.out.println("Ma lop hoc khong ton tai!");
@@ -77,7 +78,20 @@ public class ClassroomService {
         }
 
         ClassroomDTO deletedClassroom = deletedClassroomOptional.get();
-        StudentConstant.listClass.remove(deletedClassroom);
-        System.out.println("Xoa lop hoc thanh cong!");
+
+        int studentCount = 0;
+        for (StudentDTO student : StudentConstant.listStudent) {
+            String classroomId = student.getClassroom().getClassId(); // ma lop cua tung sinh vien
+            if (classroomId.equals(deletedClassroomId)) {
+                studentCount++;
+            }
+        }
+        if (studentCount > 0) {
+            System.out.println("Lop con " + studentCount + " sinh vien, khong duoc phep xoa!");
+        } else {
+            StudentConstant.listClass.remove(deletedClassroom);
+            System.out.println("Xoa lop hoc thanh cong!");
+        }
+
     }
 }
