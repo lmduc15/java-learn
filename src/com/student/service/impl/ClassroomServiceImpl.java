@@ -1,6 +1,6 @@
 package com.student.service.impl;
 
-import com.student.constant.StudentConstant;
+import com.student.constant.StudentManagementConstant;
 import com.student.model.ClassroomDTO;
 import com.student.model.StudentDTO;
 import com.student.service.ClassroomService;
@@ -9,7 +9,7 @@ import com.student.util.InputValidation;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu interface
+public class ClassroomServiceImpl implements ClassroomService {
     Scanner sc = new Scanner(System.in);
 
     public ClassroomServiceImpl() {
@@ -17,7 +17,7 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
 
     @Override
     public Optional<ClassroomDTO> findById(String classroomId) {
-        for (ClassroomDTO classroom : StudentConstant.listClass) {
+        for (ClassroomDTO classroom : StudentManagementConstant.listClass) {
             if (classroom.getClassId().equals(classroomId)) {
                 return Optional.of(classroom);
             }
@@ -29,11 +29,11 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
     public void showClassrooms() {
         int stt = 1;
         System.out.println("----Hien thi danh sach lop hoc----");
-        if (StudentConstant.listClass.isEmpty()) {
+        if (StudentManagementConstant.listClass.isEmpty()) {
             System.out.println("Danh sach lop hoc rong!");
             return;
         }
-        for (ClassroomDTO classroom : StudentConstant.listClass) {
+        for (ClassroomDTO classroom : StudentManagementConstant.listClass) {
             System.out.println("STT: " + (stt++) + ", " + classroom);
         }
     }
@@ -49,7 +49,7 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
         String classroomName = InputValidation.readString(sc, "Nhap ten lop hoc: ");
         Integer classroomQuantity = InputValidation.readInt(sc, "Nhap si so lop hoc: ");
         ClassroomDTO classRoom = new ClassroomDTO(classroomId, classroomName, classroomQuantity);
-        StudentConstant.listClass.add(classRoom);
+        StudentManagementConstant.listClass.add(classRoom);
         System.out.println("Them lop hoc thanh cong!");
     }
 
@@ -86,7 +86,7 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
         ClassroomDTO deletedClassroom = deletedClassroomOptional.get();
 
         int studentCount = 0;
-        for (StudentDTO student : StudentConstant.listStudent) {
+        for (StudentDTO student : StudentManagementConstant.listStudent) {
             String classroomId = student.getClassroom().getClassId(); // ma lop cua tung sinh vien
             if (classroomId.equals(deletedClassroomId)) {
                 studentCount++;
@@ -95,7 +95,7 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
         if (studentCount > 0) {
             System.out.println("Lop con " + studentCount + " sinh vien, khong duoc phep xoa!");
         } else {
-            StudentConstant.listClass.remove(deletedClassroom);
+            StudentManagementConstant.listClass.remove(deletedClassroom);
             System.out.println("Xoa lop hoc thanh cong!");
         }
 
@@ -113,7 +113,7 @@ public class ClassroomServiceImpl implements ClassroomService { //TODO thiếu i
         ClassroomDTO showedClassroom = showedClassroomOptional.get();
 
         int studentCount = 0;
-        for (StudentDTO student : StudentConstant.listStudent) {
+        for (StudentDTO student : StudentManagementConstant.listStudent) {
             String classroomId = student.getClassroom().getClassId(); // ma lop cua tung sinh vien
             if (classroomId.equals(showedClassroomId)) {
                 System.out.println(student);

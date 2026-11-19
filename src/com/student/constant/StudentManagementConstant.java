@@ -5,8 +5,11 @@ import com.student.model.StudentDTO;
 
 import java.util.ArrayList;
 
-public final class StudentConstant { //TODO tên constant đang chưa hợp lý
-    //TODO vẫn thieeus private constructor
+public final class StudentManagementConstant {
+
     public static ArrayList<StudentDTO> listStudent = new ArrayList<>();
     public static ArrayList<ClassroomDTO> listClass = new ArrayList<>();
+
+    private StudentManagementConstant() {
+    }
 }

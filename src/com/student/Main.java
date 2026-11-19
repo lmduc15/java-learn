@@ -2,9 +2,9 @@ package com.student;
 
 import com.karaoke.util.InputValidate;
 import com.student.service.ClassroomService;
-import com.student.service.impl.ClassroomService2Impl;
 import com.student.service.impl.ClassroomServiceImpl;
-import com.student.service.impl.StudentService;
+import com.student.service.StudentService;
+import com.student.service.impl.StudentServiceImpl;
 
 import java.util.Scanner;
 
@@ -13,8 +13,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int choice;
 
-        StudentService studentService = new StudentService();
-        ClassroomService classroomService = new ClassroomService2Impl();
+        StudentService studentService = new StudentServiceImpl();
+        ClassroomService classroomService = new ClassroomServiceImpl();
         do {
             System.out.println("<<<<<Quan ly Sinh Vien>>>>>");
             System.out.println("1. Them Sinh vien");

@@ -1,22 +1,24 @@
 package com.student.service.impl;
 
-import com.student.constant.StudentConstant;
+import com.student.constant.StudentManagementConstant;
 import com.student.model.ClassroomDTO;
 import com.student.model.StudentDTO;
+import com.student.service.StudentService;
 import com.student.util.InputValidation;
 
 import java.util.Optional;
 import java.util.Scanner;
 
-public class StudentService { //TODO thiếu interface
+public class StudentServiceImpl implements StudentService {
     Scanner sc = new Scanner(System.in);
     ClassroomServiceImpl classroomService = new ClassroomServiceImpl();
 
-    public StudentService() {
+    public StudentServiceImpl() {
     }
 
+    @Override
     public Optional<StudentDTO> findById(Integer studentId) {
-        for (StudentDTO student : StudentConstant.listStudent) {
+        for (StudentDTO student : StudentManagementConstant.listStudent) {
             if (student.getStudentId().equals(studentId)) {
                 return Optional.of(student);
             }
@@ -24,18 +26,20 @@ public class StudentService { //TODO thiếu interface
         return Optional.empty();
     }
 
+    @Override
     public void showStudents() {
         int stt = 1;
         System.out.println("----Hien thi danh sach sinh vien-----");
-        if (StudentConstant.listStudent.isEmpty()) {
+        if (StudentManagementConstant.listStudent.isEmpty()) {
             System.out.println("Danh sach sinh vien rong!");
             return;
         }
-        for (StudentDTO student : StudentConstant.listStudent) {
+        for (StudentDTO student : StudentManagementConstant.listStudent) {
             System.out.println("STT: " + (stt++) + ", " + student);
         }
     }
 
+    @Override
     public void addStudent() {
         System.out.println("---Them Sinh vien moi----");
         Integer studentId = InputValidation.readInt(sc, "Nhap ma sinh vien: ");
@@ -57,10 +61,11 @@ public class StudentService { //TODO thiếu interface
 
         StudentDTO sinhVien = new StudentDTO(studentId, name, age, classroom);
 
-        StudentConstant.listStudent.add(sinhVien);
+        StudentManagementConstant.listStudent.add(sinhVien);
         System.out.println("Them sinh vien thanh cong !");
     }
 
+    @Override
     public void updateStudent() {
         System.out.println("----Sua Sinh vien----");
         Integer studentId = InputValidation.readInt(sc, "Nhap ma sinh vien can sua: ");
@@ -89,6 +94,7 @@ public class StudentService { //TODO thiếu interface
         System.out.println("Cap nhat sinh vien thanh cong !");
     }
 
+    @Override
     public void deleteStudent() {
         System.out.println("----Xoa Sinh vien----");
 
@@ -101,7 +107,7 @@ public class StudentService { //TODO thiếu interface
         }
 
         StudentDTO deletedStudent = deletedStudentOptional.get();
-        StudentConstant.listStudent.remove(deletedStudent);
+        StudentManagementConstant.listStudent.remove(deletedStudent);
         System.out.println("Xoa sinh vien thanh cong !");
     }
 }
