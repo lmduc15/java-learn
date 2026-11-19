@@ -1,6 +1,5 @@
 package com.student.model;
 
-//TODO quản lý thêm Lớp học
 public class StudentDTO {
     private Integer studentId;
     private String name;

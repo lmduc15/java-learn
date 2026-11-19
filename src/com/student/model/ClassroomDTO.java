@@ -4,6 +4,7 @@ public class ClassroomDTO {
     private String classroomId;
     private String classroomName;
     private Integer quantity;
+    //TODO đang thiếu danh sách student
 
     public ClassroomDTO() {
     }

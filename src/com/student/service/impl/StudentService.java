@@ -1,4 +1,4 @@
-package com.student.service;
+package com.student.service.impl;
 
 import com.student.constant.StudentConstant;
 import com.student.model.ClassroomDTO;
@@ -8,9 +8,9 @@ import com.student.util.InputValidation;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class StudentService {
+public class StudentService { //TODO thiếu interface
     Scanner sc = new Scanner(System.in);
-    ClassroomService classroomService = new ClassroomService();
+    ClassroomServiceImpl classroomService = new ClassroomServiceImpl();
 
     public StudentService() {
     }
