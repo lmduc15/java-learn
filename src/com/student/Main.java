@@ -59,9 +59,10 @@ public class Main {
             System.out.println("2. Sua Lop hoc");
             System.out.println("3. Xoa Lop hoc");
             System.out.println("4. Xem danh sach Lop hoc");
+            System.out.println("5. Xem sinh vien trong lop");
             System.out.println("0. Quay lai");
 
-            choice = InputValidate.inputIntInRange(sc, "Nhap chuc nang: ", 0, 4);
+            choice = InputValidate.inputIntInRange(sc, "Nhap chuc nang: ", 0, 5);
             switch (choice) {
                 case 1:
                     classroomService.addClassroom();
@@ -74,6 +75,9 @@ public class Main {
                     break;
                 case 4:
                     classroomService.showClassrooms();
+                    break;
+                case 5:
+                    classroomService.showStudentInClass();
                     break;
                 case 0:
                     return;

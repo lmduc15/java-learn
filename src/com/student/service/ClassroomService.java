@@ -94,4 +94,33 @@ public class ClassroomService {
         }
 
     }
+
+    public void showStudentInClass() {
+        System.out.println("----Xem so sinh vien trong lop hoc----");
+        String showedClassroomId = InputValidation.readString(sc, "Nhap ma lop hoc can xem: ");
+        Optional<ClassroomDTO> showedClassroomOptional = findById(showedClassroomId);
+        if (showedClassroomOptional.isEmpty()) {
+            System.out.println("Ma lop khong ton tai!");
+            return;
+        }
+        ClassroomDTO showedClassroom = showedClassroomOptional.get();
+
+        int studentCount = 0;
+        for (StudentDTO student : StudentConstant.listStudent) {
+            String classroomId = student.getClassroom().getClassId(); // ma lop cua tung sinh vien
+            if (classroomId.equals(showedClassroomId)) {
+                System.out.println(student);
+                studentCount++;
+            }
+        }
+        if (studentCount > 0) {
+            System.out.println("Lớp: " + showedClassroom.getClassName() + " (" + showedClassroom.getClassId() + ")" + " - Sĩ số: " + studentCount + "/" + showedClassroom.getQuantity());
+        } else {
+            System.out.println("Lop " + showedClassroom.getClassName() + " khong co sinh vien nao!");
+        }
+    }
+
+//    private int countStudent(int studentCount) {
+//
+//    }
 }
